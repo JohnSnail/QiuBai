@@ -15,16 +15,17 @@
 {
     _shit = shit;
     //UserFrame
-    TCShitUserFrame *userFrame = [[TCShitUserFrame alloc] init];
-    userFrame.user = self.shit.user;
-    userFrame.type = self.shit.type;
-    self.userFrame = userFrame;
+//    TCShitUserFrame *userFrame = [[TCShitUserFrame alloc] init];
+//    userFrame.user = self.shit.user;
+//    userFrame.type = self.shit.type;
+//    self.userFrame = userFrame;
     
     //糗事内容Frame
     TCShitContentFrame *contentFrame = [[TCShitContentFrame alloc] init];
     contentFrame.shit = self.shit;
     CGRect tempF = contentFrame.frame;
-    tempF.origin.y = CGRectGetMaxY(userFrame.frame) + TCShitCellMargin;
+//    tempF.origin.y = CGRectGetMaxY(userFrame.frame) + TCShitCellMargin;
+    tempF.origin.y = TCShitCellMargin; //取消用户栏
     contentFrame.frame = tempF;
     self.contentFrame = contentFrame;
     

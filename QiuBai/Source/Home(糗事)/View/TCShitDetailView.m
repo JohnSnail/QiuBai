@@ -26,10 +26,10 @@
     if (self) {
         self.image = [UIImage resizedImage:@"timeline_card_top_background"];
         //用户
-        TCShitUserView *userView = [[TCShitUserView alloc] init];
-        userView.userInteractionEnabled = YES;
-        [self addSubview:userView];
-        self.userView = userView;
+//        TCShitUserView *userView = [[TCShitUserView alloc] init];
+//        userView.userInteractionEnabled = YES;
+//        [self addSubview:userView];
+//        self.userView = userView;
     
         //正文
         TCShitContentView *contentView = [[TCShitContentView alloc] init];
@@ -43,8 +43,8 @@
 {
     _detailFrame = detailFrame;
     self.frame = detailFrame.frame;
-    //用户
-    self.userView.shitUserFrame = detailFrame.userFrame;
+//    //用户
+//    self.userView.shitUserFrame = detailFrame.userFrame;
     //正文
     self.contentView.contentFrame = detailFrame.contentFrame;
     

@@ -42,7 +42,8 @@
     CGFloat toolBarX = 0;
     CGFloat toolBarY = CGRectGetMaxY(self.detailFrame.frame);
     CGFloat toolBarW = TCScreenWidth;
-    CGFloat toolBarH = 40;//工具条高度暂定40
+//    CGFloat toolBarH = 40;//工具条高度暂定40
+    CGFloat toolBarH = 0;//工具条高度修改为0
     
     self.toolBarFrame = CGRectMake(toolBarX, toolBarY, toolBarW, toolBarH);
     

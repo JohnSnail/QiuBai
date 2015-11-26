@@ -39,9 +39,9 @@
         [self.contentView addSubview: detailView];
         self.detailView = detailView;
         //添加工具条
-        TCShitToolBar *toolBar = [[TCShitToolBar alloc] init];
-        [self.contentView addSubview: toolBar];
-        self.toolBar = toolBar;
+//        TCShitToolBar *toolBar = [[TCShitToolBar alloc] init];
+//        [self.contentView addSubview: toolBar];
+//        self.toolBar = toolBar;
         
         // 3.cell的设置
         self.backgroundColor = [UIColor clearColor];
