@@ -18,7 +18,9 @@
 #import "TCShitDetailController.h"
 #import "TCShitUserView.h"
 #import "TCUserInfoViewController.h"
+
 #define TCMargin 100
+
 @interface TCSuggestController ()<TCShitUserViewDelegate>
 @property(strong, nonatomic) NSMutableArray *shitFramesArray;
 @property(assign, nonatomic) NSUInteger count;
@@ -42,12 +44,13 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
+    
     [self.tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(loadNewShits)];
     self.tableView.header.updatedTimeHidden = YES;
     [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(loadMoreShits)];
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, TCMargin, 0);
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     if (!self.shitFramesArray) {
         self.tableView.footer.hidden = YES;
     }
@@ -159,45 +162,45 @@
 - (void)showNewShitCount:(NSString *)newNumber
 {
     //添加一个label到导航控制器的view中
-    UILabel *label = [[UILabel alloc] init];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [UIColor whiteColor];
-    label.backgroundColor = TCRandomColor;
+//    UILabel *label = [[UILabel alloc] init];
+//    label.textAlignment = NSTextAlignmentCenter;
+//    label.textColor = [UIColor whiteColor];
+//    label.backgroundColor = TCRandomColor;
     
     //添加label到navigationBar的下面
-    [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
+//    [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
     
     // 设置文字
-    if (newNumber.intValue <= 0 && newNumber.intValue != TCCacheTag.intValue) {
-        label.text = @"没有新的糗事";
-    } else if (newNumber.intValue > 0 ){
-        label.text = [NSString stringWithFormat:@"共为您刷新%@条糗事", newNumber];
-    } else {//刚开始进入加载离线数据时,直接返回,不提示
-        return;
-    }
+//    if (newNumber.intValue <= 0 && newNumber.intValue != TCCacheTag.intValue) {
+//        label.text = @"没有新的糗事";
+//    } else if (newNumber.intValue > 0 ){
+//        label.text = [NSString stringWithFormat:@"共为您刷新%@条糗事", newNumber];
+//    } else {//刚开始进入加载离线数据时,直接返回,不提示
+//        return;
+//    }
     
     //计算位置
-    label.width = self.navigationController.view.width;
-    label.height = 35;
-    label.x = 0;
-    label.y = 64 - label.height;
-    label.alpha = 0.0;
+//    label.width = self.navigationController.view.width;
+//    label.height = 35;
+//    label.x = 0;
+//    label.y = 64 - label.height;
+//    label.alpha = 0.0;
     
-    [UIView animateWithDuration:0.5 animations:^{
-        //往下移动一个label的高度
-        label.transform = CGAffineTransformMakeTranslation(0, label.height);
-        label.alpha = 1.0;
-    } completion:^(BOOL finished) {
-
-        [UIView animateWithDuration:0.5 delay:1.0 options:UIViewAnimationOptionCurveLinear animations:^{
-            //label回到原来的位置
-            label.transform = CGAffineTransformIdentity;
-            label.alpha = 0.0;
-        } completion:^(BOOL finished) {
-            //从内存中移除
-            [label removeFromSuperview];
-        }];
-    }];
+//    [UIView animateWithDuration:0.5 animations:^{
+//        //往下移动一个label的高度
+//        label.transform = CGAffineTransformMakeTranslation(0, label.height);
+//        label.alpha = 1.0;
+//    } completion:^(BOOL finished) {
+//
+//        [UIView animateWithDuration:0.5 delay:1.0 options:UIViewAnimationOptionCurveLinear animations:^{
+//            //label回到原来的位置
+//            label.transform = CGAffineTransformIdentity;
+//            label.alpha = 0.0;
+//        } completion:^(BOOL finished) {
+//            //从内存中移除
+//            [label removeFromSuperview];
+//        }];
+//    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -219,6 +222,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TCShitCell *cell = [TCShitCell cellWithTableView:tableView];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.shitFrame = self.shitFramesArray[indexPath.row];
     return cell;
 }
@@ -235,10 +239,12 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TCShitDetailController *detailViewController = [[TCShitDetailController alloc] init];
-    detailViewController.shitFrame = self.shitFramesArray[indexPath.row];
-
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    //个人修改@郭江伟
+    
+//    TCShitDetailController *detailViewController = [[TCShitDetailController alloc] init];
+//    detailViewController.shitFrame = self.shitFramesArray[indexPath.row];
+//
+//    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 - (void)userView:(TCShitUserView *)userView withUserID:(NSString *)userID

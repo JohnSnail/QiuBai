@@ -10,6 +10,11 @@
 #import "HMSegmentedControl.h"
 #import "TCSuggestController.h"
 #import "TCPostNewShitViewController.h"
+#import "LMButton.h"
+
+#define IS_IOS_7 ([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)?YES:NO
+#define AppStoreAppId @"1055560827"
+
 @interface TCHomeController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -56,72 +61,103 @@
  */
 - (void)setUpNavgationBar
 {
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"icon_review" target:self action:@selector(reviewNewShit)];
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"icon_post_new" target:self action:@selector(postNewShit)];
+    UIButton* back = [UIButton buttonWithType:UIButtonTypeCustom];
+    [back setTitle:@"反馈" forState:UIControlStateNormal];
+    [back setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [back addTarget:self action:@selector(pushAppStore) forControlEvents:UIControlEventTouchUpInside];
+    back.frame = CGRectMake(0, 0, 40, 40);
+    [back setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -20)];
+    UIBarButtonItem* leftItem = [[UIBarButtonItem alloc] initWithCustomView:back];
+    self.navigationItem.leftBarButtonItems = @[leftItem];
+    
+//    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"icon_review" target:self action:@selector(reviewNewShit)];
+//    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"icon_post_new" target:self action:@selector(postNewShit)];
 }
+
+
+#pragma mark - 给好评
+-(void)pushAppStore
+{
+    NSString * url;
+    if (IS_IOS_7) {
+        url = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@", AppStoreAppId];
+    }
+    else{
+        url=[NSString stringWithFormat: @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@",AppStoreAppId];
+    }
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+}
+
 /*
  * 初始化SegmentControl
  */
 - (void)setUpSegmentControl
 {
-    CGFloat segmentControlX = 0;
-    CGFloat segmentControlY = 64;
-    CGFloat segmentControlW = self.view.width;
-    CGFloat segmentControlH = 30;
+//    CGFloat segmentControlX = 0;
+//    CGFloat segmentControlY = 64;
+//    CGFloat segmentControlW = self.view.width;
+//    CGFloat segmentControlH = 30;
+//    
+//    HMSegmentedControl *segmentControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(segmentControlX, segmentControlY, segmentControlW, segmentControlH)];
+//    //设置segmentControl各部分标题
+////    segmentControl.sectionTitles = @[@"专享", @"视频", @"图文", @"纯图", @"精华", @"最新"];
+//    segmentControl.sectionTitles = @[@"专享",@"视频"];
+//
+//    //设置默认选中
+//    segmentControl.selectedSegmentIndex = 0;
+//    //设置背景色
+//    segmentControl.backgroundColor = TCRGBColor(239, 239, 239);
+//    
+//    //设置字体属性
+//    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
+//    //字体颜色
+//    attrs[NSForegroundColorAttributeName] = TCRGBColor(160, 160, 160);
+//    //字体大小
+//    attrs[NSFontAttributeName] = [UIFont systemFontOfSize:13];
+//    
+//    segmentControl.titleTextAttributes = attrs;
+//    
+//    
+//    //设置选中时对应segementControl的按钮属性
+//    NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
+//    selectedAttrs[NSForegroundColorAttributeName] = TCRGBColor(85, 85, 105);
+//    selectedAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:13];
+//    segmentControl.selectedTitleTextAttributes = selectedAttrs;
+//    
+//    //设置segmentControl选中标题文字下指示条颜色
+//    segmentControl.selectionIndicatorColor = [UIColor orangeColor];
+//    //设置选中指示条样式:HMSegmentedControlSegmentWidthStyleFixed 与title文字长度一样
+//    segmentControl.segmentWidthStyle = HMSegmentedControlSegmentWidthStyleFixed;
+//    //设置选中时指示条位置:HMSegmentedControlSelectionIndicatorLocationDown 位于title下方
+//    segmentControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+//    
+//    self.segmentControl = segmentControl;
+//    
+//
+//    //点击选中segmenControl的第index个按钮,跳转到对应视图
+//    __weak typeof(self) weakSelf = self;
+//    [self.segmentControl setIndexChangeBlock:^(NSInteger index) {
+//        [weakSelf.scrollView scrollRectToVisible:CGRectMake(segmentControlW * index, 0, segmentControlW, weakSelf.scrollView.height) animated:NO];
+//
+//    }];
+//    
+//    [self.view addSubview:self.segmentControl];
+////暂时未考虑优化等
+//    for (int i = 0; i < self.segmentControl.sectionTitles.count; i++) {
+//       TCSuggestController *homeController = [[TCSuggestController alloc] init];
+//        homeController.tableView.backgroundColor = TCGlobalBackgroundColor;
+//        homeController.tableView.frame = CGRectMake(segmentControlW * i, 0, segmentControlW, self.scrollView.height);
+//        [self addChildViewController:homeController];
+//        [self.scrollView addSubview:homeController.tableView];
+//    }
     
-    HMSegmentedControl *segmentControl = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(segmentControlX, segmentControlY, segmentControlW, segmentControlH)];
-    //设置segmentControl各部分标题
-//    segmentControl.sectionTitles = @[@"专享", @"视频", @"图文", @"纯图", @"精华", @"最新"];
-    segmentControl.sectionTitles = @[@"专享",@"视频"];
-
-    //设置默认选中
-    segmentControl.selectedSegmentIndex = 0;
-    //设置背景色
-    segmentControl.backgroundColor = TCRGBColor(239, 239, 239);
-    
-    //设置字体属性
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    //字体颜色
-    attrs[NSForegroundColorAttributeName] = TCRGBColor(160, 160, 160);
-    //字体大小
-    attrs[NSFontAttributeName] = [UIFont systemFontOfSize:13];
-    
-    segmentControl.titleTextAttributes = attrs;
-    
-    
-    //设置选中时对应segementControl的按钮属性
-    NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
-    selectedAttrs[NSForegroundColorAttributeName] = TCRGBColor(85, 85, 105);
-    selectedAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:13];
-    segmentControl.selectedTitleTextAttributes = selectedAttrs;
-    
-    //设置segmentControl选中标题文字下指示条颜色
-    segmentControl.selectionIndicatorColor = [UIColor orangeColor];
-    //设置选中指示条样式:HMSegmentedControlSegmentWidthStyleFixed 与title文字长度一样
-    segmentControl.segmentWidthStyle = HMSegmentedControlSegmentWidthStyleFixed;
-    //设置选中时指示条位置:HMSegmentedControlSelectionIndicatorLocationDown 位于title下方
-    segmentControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-    
-    self.segmentControl = segmentControl;
-    
-
-    //点击选中segmenControl的第index个按钮,跳转到对应视图
-    __weak typeof(self) weakSelf = self;
-    [self.segmentControl setIndexChangeBlock:^(NSInteger index) {
-        [weakSelf.scrollView scrollRectToVisible:CGRectMake(segmentControlW * index, 0, segmentControlW, weakSelf.scrollView.height) animated:NO];
-
-    }];
-    
-    [self.view addSubview:self.segmentControl];
-//暂时未考虑优化等
-    for (int i = 0; i < self.segmentControl.sectionTitles.count; i++) {
-       TCSuggestController *homeController = [[TCSuggestController alloc] init];
-        homeController.tableView.backgroundColor = TCGlobalBackgroundColor;
-        homeController.tableView.frame = CGRectMake(segmentControlW * i, 0, segmentControlW, self.scrollView.height);
-        [self addChildViewController:homeController];
-        [self.scrollView addSubview:homeController.tableView];
-    }
-    
+    //个人修改 @郭江伟
+    TCSuggestController *homeController = [[TCSuggestController alloc] init];
+    homeController.tableView.backgroundColor = TCGlobalBackgroundColor;
+    homeController.tableView.frame = CGRectMake(0, 0, self.view.width, self.view.height);
+    [self addChildViewController:homeController];
+    [self.view addSubview:homeController.tableView];
 }
 
 /*

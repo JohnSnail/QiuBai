@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E8AC2DFB60CC3417DBA5B8D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C8A50B24A962068C614B4A /* libPods.a */; };
+		3F447F641C0734840076FAA6 /* LMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F447F631C0734840076FAA6 /* LMButton.m */; };
 		635A894C1AF7889B009C06A8 /* TCPostNewShitParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 635A894B1AF7889B009C06A8 /* TCPostNewShitParams.m */; };
 		635A89501AF78B78009C06A8 /* TCPostNewShitTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 635A894F1AF78B78009C06A8 /* TCPostNewShitTool.m */; };
 		635A89531AF78BFE009C06A8 /* TCPostNewShitResponseResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 635A89521AF78BFE009C06A8 /* TCPostNewShitResponseResult.m */; };
@@ -107,6 +108,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F447F621C0734840076FAA6 /* LMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMButton.h; sourceTree = "<group>"; };
+		3F447F631C0734840076FAA6 /* LMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMButton.m; sourceTree = "<group>"; };
 		5628A62678D58884281C0AC9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6312CF6A1AFB5AC100BB073D /* TC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TC.h; sourceTree = "<group>"; };
 		635A894A1AF7889B009C06A8 /* TCPostNewShitParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPostNewShitParams.h; sourceTree = "<group>"; };
@@ -590,6 +593,8 @@
 		63D22BF51AF1EDB900CB7069 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3F447F621C0734840076FAA6 /* LMButton.h */,
+				3F447F631C0734840076FAA6 /* LMButton.m */,
 				63D22BF61AF1EDB900CB7069 /* Comment */,
 				63D22BF91AF1EDB900CB7069 /* TCShitCell.h */,
 				63D22BFA1AF1EDB900CB7069 /* TCShitCell.m */,
@@ -1066,6 +1071,7 @@
 				63D22C651AF1EDB900CB7069 /* TCLatestResponseResult.m in Sources */,
 				63D22C661AF1EDB900CB7069 /* TCListParams.m in Sources */,
 				63D22C5A1AF1EDB900CB7069 /* TCShitDetailFrame.m in Sources */,
+				3F447F641C0734840076FAA6 /* LMButton.m in Sources */,
 				63D22C821AF1EDB900CB7069 /* UIBarButtonItem+Extension.m in Sources */,
 				63D22C801AF1EDB900CB7069 /* NSString+Extension.m in Sources */,
 				63D22C831AF1EDB900CB7069 /* UIImage+Extension.m in Sources */,

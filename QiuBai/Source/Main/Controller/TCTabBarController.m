@@ -28,17 +28,17 @@
 
 - (void)addAllChildControllers
 {
-    TCHomeController *homeVC = [[TCHomeController alloc] init];
-    [self addOneChildVC:homeVC title:@"糗事" imageName:@"icon_main" selectedImageName:@"icon_main_active"];
+//    TCHomeController *homeVC = [[TCHomeController alloc] init];
+//    [self addOneChildVC:homeVC title:@"糗事" imageName:@"icon_main" selectedImageName:@"icon_main_active"];
     
-    TCDiscoverController *discoverVC = [[TCDiscoverController alloc] init];
-    [self addOneChildVC:discoverVC title:@"发现" imageName:@"main_tab_discovery" selectedImageName:@"main_tab_discovery_active"];
-    
-    TCChatController *chatVC = [[TCChatController alloc] init];
-    [self addOneChildVC:chatVC title:@"小纸条" imageName:@"icon_chat" selectedImageName:@"icon_chat_active"];
-    
-    TCProfileController *profileVC = [[TCProfileController alloc] init];
-    [self addOneChildVC:profileVC title:@"我" imageName:@"icon_me" selectedImageName:@"icon_me_active"];
+//    TCDiscoverController s*discoverVC = [[TCDiscoverController alloc] init];
+//    [self addOneChildVC:discoverVC title:@"发现" imageName:@"main_tab_discovery" selectedImageName:@"main_tab_discovery_active"];
+//    
+//    TCChatController *chatVC = [[TCChatController alloc] init];
+//    [self addOneChildVC:chatVC title:@"小纸条" imageName:@"icon_chat" selectedImageName:@"icon_chat_active"];
+//    
+//    TCProfileController *profileVC = [[TCProfileController alloc] init];
+//    [self addOneChildVC:profileVC title:@"我" imageName:@"icon_me" selectedImageName:@"icon_me_active"];
 }
 
 - (void)addOneChildVC:(UIViewController *)childViewController title:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName

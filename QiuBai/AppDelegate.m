@@ -10,6 +10,9 @@
 #import "TCTabBarController.h"
 #import "SDImageCache.h"
 #import "SDWebImageManager.h"
+#import "TCHomeController.h"
+#import "TCNavgationController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -23,13 +26,30 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     //设置窗口根控制器
-    self.window.rootViewController = [[TCTabBarController alloc] init];
+//    self.window.rootViewController = [[TCTabBarController alloc] init];
+    
+    TCHomeController *homeVC = [[TCHomeController alloc]init];
+    homeVC.navigationItem.title = @"每日段子";
+
+    TCNavgationController *nav = [[TCNavgationController alloc] initWithRootViewController:homeVC];
+    self.window.rootViewController = nav;
     
     //显示窗口
     [self.window makeKeyAndVisible];
     
+//    [WXApi registerApp:@"wxd930ea5d5a258f4f"];
+    
     return YES;
 }
+
+//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+//    return  [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+//}
+//
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+//    return [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+//}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
