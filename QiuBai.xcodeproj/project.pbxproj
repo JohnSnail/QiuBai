@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3E8AC2DFB60CC3417DBA5B8D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C8A50B24A962068C614B4A /* libPods.a */; };
 		3F447F641C0734840076FAA6 /* LMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F447F631C0734840076FAA6 /* LMButton.m */; };
+		3F8B28D71C0AC3350000470B /* ios_api in Resources */ = {isa = PBXBuildFile; fileRef = 3F8B28D61C0AC3350000470B /* ios_api */; };
 		635A894C1AF7889B009C06A8 /* TCPostNewShitParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 635A894B1AF7889B009C06A8 /* TCPostNewShitParams.m */; };
 		635A89501AF78B78009C06A8 /* TCPostNewShitTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 635A894F1AF78B78009C06A8 /* TCPostNewShitTool.m */; };
 		635A89531AF78BFE009C06A8 /* TCPostNewShitResponseResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 635A89521AF78BFE009C06A8 /* TCPostNewShitResponseResult.m */; };
@@ -110,6 +111,7 @@
 /* Begin PBXFileReference section */
 		3F447F621C0734840076FAA6 /* LMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMButton.h; sourceTree = "<group>"; };
 		3F447F631C0734840076FAA6 /* LMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMButton.m; sourceTree = "<group>"; };
+		3F8B28D61C0AC3350000470B /* ios_api */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ios_api; sourceTree = "<group>"; };
 		5628A62678D58884281C0AC9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6312CF6A1AFB5AC100BB073D /* TC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TC.h; sourceTree = "<group>"; };
 		635A894A1AF7889B009C06A8 /* TCPostNewShitParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPostNewShitParams.h; sourceTree = "<group>"; };
@@ -835,6 +837,7 @@
 		63F67B7D1ACAA5A300779A24 /* QiuBai */ = {
 			isa = PBXGroup;
 			children = (
+				3F8B28D61C0AC3350000470B /* ios_api */,
 				63D22B8B1AF1EDB800CB7069 /* Source */,
 				63F67B8B1ACAA5A300779A24 /* Images.xcassets */,
 				63F67B7E1ACAA5A300779A24 /* Supporting Files */,
@@ -967,6 +970,7 @@
 				63F67B8A1ACAA5A300779A24 /* Main.storyboard in Resources */,
 				63F67B8F1ACAA5A300779A24 /* LaunchScreen.xib in Resources */,
 				63F67B8C1ACAA5A300779A24 /* Images.xcassets in Resources */,
+				3F8B28D71C0AC3350000470B /* ios_api in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
